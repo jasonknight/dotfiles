@@ -1,0 +1,72 @@
+
+set nocompatible
+
+
+colorscheme molokai
+filetype plugin indent on
+
+if has('autocmd')
+    filetype plugin indent on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+    syntax enable
+endif
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set showmatch
+set showmode
+set smarttab
+set ruler
+set showcmd
+set autoread
+set encoding=utf-8
+set tabstop=2 shiftwidth=2 
+set ignorecase
+set smartcase
+set guifont=Liberation\ Mono\ Bold:h16
+hi! link FoldColumn Normal
+set foldcolumn=3 
+
+if has('mouse')
+    set mouse=a
+endif
+
+set hidden
+
+set nobackup
+set nowritebackup
+set noswapfile
+set fileformats=unix,dos,mac
+set number
+set numberwidth=5
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn','\%81v',100)
+" From the talk watch?v=XA2WjJbmmoM How to do 90% of what plugins do with just
+" vim
+
+filetype plugin on
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set wildmenu
+" Now you can use :b <part of name> to switch buffers
+" and you can use :find *.cpp or etc to pull up the
+" wildmenu and traverse it with tab and shift-tab
+
+" -- CTags Support, be sure to download ctags https://github.com/universal-ctags/ctags
+
+command! MakeTags !ctags -R
+autocmd! BufWritePost *.cpp,*.c,*.h,*.hpp silent! !start /b ctags -R
+" You can go to defs with ctrl+] and return to your place with ctrl+t
+
+" FILE BROWSING
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
