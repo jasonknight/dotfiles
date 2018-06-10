@@ -1,6 +1,5 @@
-
 set nocompatible
-
+execute pathogen#infect()
 
 colorscheme molokai
 filetype plugin indent on
@@ -70,3 +69,16 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
+
+" Status line stuff
+set laststatus=2
+set statusline=%2*\  
+set statusline+=%1*\ b:%n\ 
+set statusline+=%2*%40f\ 
+set statusline+=[%l/%L/%c]\ 
+set statusline+=%3*\ %{fugitive#statusline()}\ 
+set statusline+=%=
+set statusline+=%2*\ ‹‹\ %{strftime('%R',getftime(expand('%')))}\ ››
+hi User1 guifg=#FFFFFF guibg=#191f26 gui=BOLD
+hi User2 guifg=#000000 guibg=#959ca6
+hi User3 guifg=#000000 guibg=#4cbf99
