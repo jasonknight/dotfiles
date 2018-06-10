@@ -1,0 +1,62 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+	Plugin 'VundleVim/Vundle.vim'
+call vundle#end()
+
+colorscheme molokai
+filetype plugin indent on
+
+if has('autocmd')
+	filetype plugin indent on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+	syntax enable
+endif
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set showmatch
+set showmode
+set smarttab
+set ruler
+set showcmd
+set autoread
+set encoding=utf-8
+set tabstop=2 shiftwidth=2
+set ignorecase
+set gfn=Liberation\ Mono\ 16
+hi! link FoldColumn Normal
+set foldcolumn=3
+
+if has('mouse')
+	set mouse=a
+endif
+
+set hidden
+
+set nobackup
+set nowritebackup
+set noswapfile
+set fileformats=unix,dos,mac
+
+set number
+set numberwidth=5
+set linespace=12
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn','\%81v',100)
+
+filetype plugin on
+
+set path+=**
+set wildmenu
+
+let g:netrw_banne=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_listsyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+
